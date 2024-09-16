@@ -21,11 +21,11 @@ const StarRating = ({noOfStars = 5}) => {
             index += 1
             return <FaStar
             key={index}
-            className={index <= (hover || rating) ? 'text-orange-' : 'text-black' }
+            className={index <= (hover || rating) ? 'text-yellow-300' : 'text-black' }
             onClick={() => handleClick(index)}
             onMouseMove={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave()}
-            size={80}
+            size={40}
             />
         })
     }
