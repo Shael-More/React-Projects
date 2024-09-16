@@ -41,6 +41,12 @@ const RandomColor = () => {
     }
     setColor(hex);
   };
+
+  useEffect(() => {
+    if (type === "hex") handleHexColorGeneration()
+    else handleRGBColorGeneration()
+  }, [type])
+  
   return (
     <div
       style={{
