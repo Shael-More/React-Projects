@@ -77,7 +77,7 @@ const ImageSlider = ({url, page="1", limit="5"}) => {
                 className={
                   currentSlide === index
                     ? 'bg-white h-4 w-4 rounded-full border-none outline-none m-1'
-                    : ' hidd'
+                    : ' hidden'
                 }
               ></button>
             ))
