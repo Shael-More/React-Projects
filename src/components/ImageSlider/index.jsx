@@ -1,53 +1,50 @@
-import { useState, useEffect } from "react"
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs"
+import { useState, useEffect } from 'react';
+import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 
-
-const ImageSlider = ({url, page="1", limit="5"}) => {
-  const [images, setImages] = useState([])
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
+const ImageSlider = ({ url, page = '1', limit = '5' }) => {
+  const [images, setImages] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const fetchImages = async (getURL) => {
     try {
-      setLoading(true)
-      const response =  await fetch(`${url}?page=${page}&limit=${limit}`)
-      const data = await response.json()
+      setLoading(true);
+      const response = await fetch(`${url}?page=${page}&limit=${limit}`);
+      const data = await response.json();
 
       if (data) {
-        setImages(data)
-        setLoading(false)      
+        setImages(data);
+        setLoading(false);
       }
-      
     } catch (error) {
-      setError(error.message)
-      setLoading(false)
+      setError(error.message);
+      setLoading(false);
     }
-  }
+  };
 
   const handlePrevious = () => {
-    setCurrentSlide(currentSlide === 0 ? images.length - 1 : currentSlide - 1)
-  }
+    setCurrentSlide(currentSlide === 0 ? images.length - 1 : currentSlide - 1);
+  };
   const handleNext = () => {
-    setCurrentSlide(currentSlide === images.length - 1 ? 0 : currentSlide + 1)
-  }
+    setCurrentSlide(currentSlide === images.length - 1 ? 0 : currentSlide + 1);
+  };
 
   useEffect(() => {
-    if (url !== "") fetchImages(url)
-  }, [url])
+    if (url !== '') fetchImages(url);
+  }, [url]);
 
   if (loading) {
-    return <div>Loading Data! Please Wait...</div>
+    return <div>Loading Data! Please Wait...</div>;
   }
 
   if (error !== null) {
-    return <div>Error Occurred! {error}</div>
+    return <div>Error Occurred! {error}</div>;
   }
 
   const handleClick = () => {
-    setCurrentSlide()
-  }
-
+    setCurrentSlide();
+  };
 
   return (
     <div className='flex justify-center items-center relative w-[600px] h-[450px] shadow-sm'>
@@ -68,17 +65,13 @@ const ImageSlider = ({url, page="1", limit="5"}) => {
             />
           ))
         : null}
-      <span className='flex absolute bottom-4'>
+      <span className='flex justify-center items-center absolute bottom-4'>
         {images && images.length
-          ? images.map((_, index) => (
+          ? images.map(( _, index) => (
               <button
-                onClick={() => setCurrentSlide(index)}
                 key={index}
-                className={
-                  currentSlide === index
-                    ? 'bg-white h-4 w-4 rounded-full border-none outline-none m-1'
-                    : ' hidden'
-                }
+                onClick={() => setCurrentSlide(index)}
+                className={currentSlide === index ? "bg-white w-4 h-4 rounded-full m-1" : "bg-gray-500 w-4 h-4 rounded-full m-1" }
               ></button>
             ))
           : null}
@@ -89,6 +82,6 @@ const ImageSlider = ({url, page="1", limit="5"}) => {
       />
     </div>
   );
-}
+};
 
-export default ImageSlider
+export default ImageSlider;
