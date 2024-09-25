@@ -2,13 +2,12 @@ import React from 'react';
 import Tabs from './tabs';
 
 const RandomComponent = () => {
-    return <div>Some Random Content</div>
-}
+  return <div>Some Random Content</div>;
+};
 
 const handleChange = (currentTabIndex) => {
-    console.log(currentTabIndex);
-    
-}
+  console.log(currentTabIndex);
+};
 
 const ParentTab = () => {
   const tabs = [
