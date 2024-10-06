@@ -16,6 +16,15 @@ import ParentModal from './components/Custom-modal-popup/parentmodal';
 import ProfileFinder from './components/Github-Profile-Finder';
 import SearchAutocomplete from './components/Search-Autocomplete';
 import TicTacToe from './components/TicTacToe';
+import FeatureFlagGlobalState from './components/FeaturedFlagship/context';
+import FeatureFlags from './components/FeaturedFlagship';
+import UseFetchHookTest from './components/CustomHook/test';
+import UseOnclickOutsideTest from './components/CustomHook/OutsideClick/test';
+import UseWindowResizeTest from './components/CustomHook/Responsiveness/test';
+import MemoHook from './Testing/UseMemo';
+import ScrollTopToBottom from './components/ScrollTopToBottom';
+import ScrollToSection from './components/ScrollTopToBottom/ScrollToSection';
+import WeatherApp from './components/WeatherApp/Weather';
 
 function App() {
   return (
@@ -49,13 +58,31 @@ function App() {
       {/* <ProfileFinder /> */}
       {/* Search Autocomplete Component */}
       {/* <SearchAutocomplete /> */}
-      {/* Tic Tac Toe  */}
-      <TicTacToe />
+      {/* Tic Tac Toe game component */}
+      {/* <TicTacToe /> */}
+      {/* Feature Flag Component with Context component*/}
+      {/* <FeatureFlagGlobalState>
+        <FeatureFlags />
+      </FeatureFlagGlobalState> */}
+      {/* Custom hook */}
+      {/* <UseFetchHookTest /> */}
+      {/* <UseOnclickOutsideTest /> */}
+      {/* <UseWindowResizeTest />  */}
+      {/* Scroll Top to Bottom and vise versa */}
+      {/* <ScrollTopToBottom /> */}
+      {/* Scroll To a particular section */}
+      {/* <ScrollToSection /> */}
+      {/* Weather App Component */}
+      {/* <WeatherApp /> */}
+
+
 
       {/* React Form */}
       {/* <ReactForm /> */}
       {/* React All Hooks  */}
       {/* <FirstHook /> */}
+      {/* useMemo hook */}
+      {/* <MemoHook /> */}
     </>
   );
 }
